@@ -26,5 +26,25 @@ for player in range(1,27):
             'type': 'free'
         })
 
+for violin in [1, 4, 5, 9, 11, 13]:
+    files = glob.glob(f'/home/hugo/Thèse/Data/Villefavard 2024/Violin {violin}/*.mp3')
+    for file in files:
+        filename = os.path.basename(file)[:-4]
+        if filename == 'menno':
+            player = 30
+        elif filename == 'casper':
+            player = 31
+        elif filename == 'ellin':
+            player = 32
+        else:
+            player = 99
+        data.append({
+            'file': file,
+            'player': player,
+            'violin': violin,
+            'type': 'villefavard'
+        })
+
 df = pd.DataFrame(data)
+print(set(df['violin'].to_numpy()))
 df.to_pickle('recordings.pkl')
