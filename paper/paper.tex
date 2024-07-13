@@ -1,6 +1,8 @@
 \documentclass[letterpaper,11pt,leqno]{article}
 \usepackage{paper}
 \usepackage{tikz}
+\usepackage{multirow}
+\usepackage{dirtytalk}
 \usetikzlibrary{arrows,positioning,shapes}
 \bibliographystyle{bibliography}
 
@@ -16,10 +18,10 @@
 \begin{document}
 
 % Enter title:
-\title{Individual Violin Identification using audio features and machine learning}
+\title{Individual violin sound identification using audio features and machine learning}
 
 % Enter authors:
-\author{Hugo Pauget Ballesteros, Claudia Fritz
+\author{Hugo Pauget Ballesteros, Claudia Fritz, Philippe Lalitte
 %
 % Enter affiliations and acknowledgements:
 \thanks{First Author: First University. Second Author: Second University. We thank colleagues for helpful comments and discussions. This work was supported by a grant [grant number]; another grant [grant number]; and a foundation.}}
@@ -48,71 +50,144 @@ This paper is structured as follows: Section \ref{s:methodology} presents the me
 
 \subsection{Dataset}
 
-During the Bilbao Project, thirteen violins were built in order to relate their material and geometrical characteristics with their tonal quality \citep{fritzBilbaoProjectSearching2021}. These violins have been played by twenty-three professional violinists, each of them having recorded a scale on each violin. The recordings were made under the same conditions in a large rehearsal room at the Bilbao conservatory, keeping the distance between the player and the microphone constant. Our dataset thus consists of $13 \times 23$ scales.
+During the Bilbao Project, thirteen violins were built in order to relate their material and geometrical characteristics with their tonal quality \citep{fritzBilbaoProjectSearching2021}. These violins have been played by twenty-three professional violinists, each of them having recorded a scale on each violin and a short musical excerpt on a violin of their choice. The recordings were made under the same conditions in a large rehearsal room at the Bilbao conservatory, keeping the distance between the player and the microphone constant. Our dataset thus consists of $13 \times 23$ scales plus $1 \times 23$ musical excerpts.
+
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{../figures/class_weights.png}
+	\caption{Recording time available with respect to players and with respect to violins}
+\end{figure}
 
 \subsection{Features}
 
 The following features have been compared for the classification task :
 
-\paragraph*{Long-Term Average Spectra (LTAS)}{
-	Average Power Spectral Density (PSD) of a recording, obtained using a series of overlapping FFTs.
+\subsubsection{Long-Term Average Spectra (LTAS)}{
+
+The Average Power Spectral Density (PSD) of a recording is obtained by dividing the input signal into overlapping segments, then calculating the windowed DFT of each segment and finally averaging the power of those DFTs :
+
+\begin{figure}[!h]
+	\begin{tikzpicture}
+		% \usetikzlibrary{arrows,positioning,shapes}
+		\tikzstyle{entry} = [draw=none, text width=3em, text centered, minimum height=3em]
+		\tikzstyle{block} = [rectangle, draw, text width=4em, text centered, rounded corners, minimum height=3em]
+		\tikzstyle{arrow} = [draw, -latex']
+		\node [entry] (signal) {Signal};
+		\node [block, right=of signal] (window) {Window};
+		\node [block, right=of window] (dft) {DFT};
+		\node [block, right=of dft] (power) {$|\cdot|^2$};
+		\node [block, right=of power] (average) {Average};
+		\node [entry, right=of average] (ltas) {LTAS};
+
+		\path[draw,->] (signal) edge (window);
+		\path[draw,->] (window) edge (dft);
+		\path[draw,->] (dft) edge (power);
+		\path[draw,->] (power) edge (average);
+		\path[draw,->] (average) edge (ltas);
+	\end{tikzpicture}
+\end{figure}
+
+LTAS has been used [?] in order to compare the tonal quality of violins.
+
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{../figures/ltas.png}
+	\caption{Standard Deviation of the LTAS of the 13 violins with respect to players}
+\end{figure}
 }
 
-\paragraph*{1/3-octave band LTAS (1/3-LTAS)}{
-	LTAS, gaussian-smoothed to 1/3-octave resolution.
-}
+\subsubsection{Mel-Frenquency Cepstral Coefficients (MFCC)}{
+	MFCCs are obtained by mapping the frequencies of a spectrum onto a nonlinear mel-scale (a perceptual scale of pitches judged by listeners to be equal in distance from one another), taking the log, and then compute the DCT of the result. Here, instead of calculating the MFCCs on overlapping segments, we use a LTAS as our spectra as we want features with a long-term meaning :
 
-\paragraph{Mel-Frenquency Cepstral Coefficients (MFCC)}{
-	MFCC are a set of features that has been extensively used for Automatic Speaker Reognition and for Instruments Classification.
 	\begin{figure}[!h]
 		\begin{tikzpicture}
 			% \usetikzlibrary{arrows,positioning,shapes}
+			\tikzstyle{entry} = [draw=none, text width=3em, text centered, minimum height=3em]
 			\tikzstyle{block} = [rectangle, draw, text width=3em, text centered, rounded corners, minimum height=3em]
 			\tikzstyle{arrow} = [draw, -latex']
-			\node [block] (signal) {Signal};
-			\node [block, right=of signal] (fft) {FFT};
-			\node [block, right=of fft] (mel) {Mel \\ Filter};
+			
+			\node [entry] (signal) {Signal};
+			\node [block, right=of signal] (ltas) {LTAS};
+			\node [block, right=of ltas] (mel) {Mel \\ Filter};
 			\node [block, right=of mel] (log) {Log};
 			\node [block, right=of log] (dct) {DCT};
-			\node [block, right=of dct] (mfcc) {MFCC};
+			\node [entry, right=of dct] (mfcc) {MFCC};
 
-			\path[draw,->] (signal) edge (fft);
-			\path[draw,->] (fft) edge (mel);
+			\path[draw,->] (signal) edge (ltas);
+			\path[draw,->] (ltas) edge (mel);
 			\path[draw,->] (mel) edge (log);
 			\path[draw,->] (log) edge (dct);
 			\path[draw,->] (dct) edge (mfcc);
 		\end{tikzpicture}
 	\end{figure}
+
+	MFCC are a set of features that has been extensively used for Automatic Speaker Recognition and for Instruments Classification.
+
+	\begin{figure}[!h]
+		\includegraphics[width=0.8\textwidth]{../figures/ltcc.png}
+		\caption{Standard Deviation of the LTAS of the 13 violins with respect to players}
+	\end{figure}
 }
 
-\paragraph*{Long-Term Cepstral Coefficients (LTCC)}{
-	LTCC have been introduced in \cite{lukasikLongTermCepstral2010b} for Indivudial Instrument Identification. Their calculation is similar to that of MFCCs, except that a Mel-filterbank is not applied and that the final step is given by an Inverse Discrete Fourier Transform.
+\subsubsection{Long-Term Cepstral Coefficients (LTCC)}{
+	LTCC have been introduced in \cite{lukasikLongTermCepstral2010b} for Indivudial Instrument Identification. Their calculation is similar to that of MFCCs, except that a Mel-filterbank is not applied and that the final step is given by an Inverse Discrete Fourier Transform. 
 
 	\begin{figure}[!h]
 		\begin{tikzpicture}
+			\tikzstyle{entry} = [draw=none, text width=3em, text centered, minimum height=3em]
 			\tikzstyle{block} = [rectangle, draw, text width=3em, text centered, rounded corners, minimum height=3em]
 			\tikzstyle{arrow} = [draw, -latex']
-			\node [block] (signal) {Signal};
-			\node [block, right=of signal] (fft) {FFT};
-			\node [block, right=of fft] (abs) {$|.|$};
-			\node [block, right=of abs] (log) {Log};
+			\node [entry] (signal) {Signal};
+			\node [block, right=of signal] (ltas) {LTAS};
+			\node [block, right=of ltas] (log) {Log};
 			\node [block, right=of log] (idft) {iDFT};
-			\node [block, right=of idft] (ltcc) {LTCC};
+			\node [entry, right=of idft] (ltcc) {LTCC};
 
-			\path[draw,->] (signal) edge (fft);
-			\path[draw,->] (fft) edge (abs);
-			\path[draw,->] (abs) edge (log);
+			\path[draw,->] (signal) edge (ltas);
+			\path[draw,->] (ltas) edge (log);
 			\path[draw,->] (log) edge (idft);
 			\path[draw,->] (idft) edge (ltcc);
 		\end{tikzpicture}
+	\end{figure}
+
+	\begin{figure}[!h]
+		\includegraphics[width=0.8\textwidth]{../figures/ltcc.png}
+		\caption{Standard Deviation of the LTAS of the 13 violins with respect to players}
 	\end{figure}
 }
 
 \subsection{Data exploration}
 
+\subsubsection{Feature selection}
+
 \subsection{Classification}
 
+\subsubsection{K-Nearest Neighbours}
+
+\subsubsection{Support Vector Machines}
+
+\subsubsection{Multilayer Perceptron}
+
 \section{Results}\label{s:results}
+
+\begin{table}[h!]
+\caption{ the basic table}  
+\centering
+	\begin{tabular}{c c c c}
+		\textbf{Method} & \textbf{Feature} & \textbf{Train} & \textbf{Test} \\
+		\hline\hline
+		\multirow{3}{3em}{K-NN} & LTAS & 100\% & 37\% \\
+		& LTCC & 100\% & 100\% \\
+		& MFCC & 100\% & 100\% \\
+		\hline
+		\multirow{3}{3em}{SVM} & LTAS & 100\% & 37\% \\
+		& LTCC & 100\% & 100\% \\
+		& MFCC & 100\% & 100\% \\
+		\hline
+		\multirow{3}{3em}{MLP} & LTAS & 100\% & 37\% \\
+		& LTCC & 100\% & 100\% \\
+		& MFCC & 100\% & 100\% \\
+		\hline
+	\end{tabular}
+\end{table}
 
 \section{Conclusions}\label{s:conclusions}
 

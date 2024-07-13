@@ -3,6 +3,8 @@ import glob
 import pandas as pd
 
 data = []
+
+# Bilbao Dataset (2019)
 for player in range(1,27):
     for violin in range(1,14):
         
@@ -26,6 +28,7 @@ for player in range(1,27):
             'type': 'free'
         })
 
+# Villefavard 2024 Dataset
 for violin in [1, 4, 5, 9, 11, 13]:
     files = glob.glob(f'/home/hugo/Thèse/Data/Villefavard 2024/Violin {violin}/*.mp3')
     for file in files:
@@ -46,5 +49,4 @@ for violin in [1, 4, 5, 9, 11, 13]:
         })
 
 df = pd.DataFrame(data)
-print(set(df['violin'].to_numpy()))
 df.to_pickle('recordings.pkl')

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.14)  14 JUN 2024 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.14)  11 JUL 2024 18:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -887,7 +887,10 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count333
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+))) (/usr/share/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
+Package: dirtytalk 2010/11/21 A package making "quoting" easier
+\c@dirtytalk@qdepth=\count334
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -939,30 +942,30 @@ File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 16.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 18.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 18.
  (/usr/share/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -998,19 +1001,19 @@ LaTeX Font Info:    ... okay on input line 16.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 16.
-Package microtype Info: Applying patch `item' on input line 16.
-Package microtype Info: Applying patch `toc' on input line 16.
-Package microtype Info: Applying patch `eqnum' on input line 16.
-Package microtype Info: Applying patch `footnote' on input line 16.
-Package microtype Info: Applying patch `verbatim' on input line 16.
+LaTeX Info: Redefining \microtypecontext on input line 18.
+Package microtype Info: Applying patch `item' on input line 18.
+Package microtype Info: Applying patch `toc' on input line 18.
+Package microtype Info: Applying patch `eqnum' on input line 18.
+Package microtype Info: Applying patch `footnote' on input line 18.
+Package microtype Info: Applying patch `verbatim' on input line 18.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 16.
+LaTeX Info: Redefining \showhyphens on input line 18.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1020,16 +1023,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
+\scratchcounter=\count335
 \scratchdimen=\dimen300
 \scratchbox=\box89
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\nofMPsegments=\count336
+\nofMParguments=\count337
 \everyMPshowfont=\toks53
-\MPscratchCnt=\count337
+\MPscratchCnt=\count338
 \MPscratchDim=\dimen301
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
 \everyMPtoPDFconversion=\toks54
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1040,155 +1043,188 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 16.
+Package hyperref Info: Link coloring OFF on input line 18.
  (./paper.out) (./paper.out)
 \@outlinefile=\write4
 \openout4 = `paper.out'.
 
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 32.
+(Font)              scaled to size 10.95pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/b/n' will be
-(Font)              scaled to size 24.88pt on input line 32.
+(Font)              scaled to size 24.88pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 32.
+(Font)              scaled to size 12.0pt on input line 34.
  (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/12'
-(microtype)             (new value: 12.0pt) on input line 32.
+(microtype)             (new value: 12.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 32.
+(microtype)             (new value: 10.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 32.
+(microtype)             (new value: 8.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/12'
-(microtype)             (new value: 12.0pt) on input line 32.
+(microtype)             (new value: 12.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 32.
+(microtype)             (new value: 10.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 32.
+(microtype)             (new value: 8.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/12'
-(microtype)             (new value: 12.0pt) on input line 32.
+(microtype)             (new value: 12.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 32.
+(microtype)             (new value: 10.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 32.
+(microtype)             (new value: 8.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/12'
-(microtype)             (new value: 12.0pt) on input line 32.
+(microtype)             (new value: 12.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 32.
+(microtype)             (new value: 10.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 32.
+(microtype)             (new value: 8.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/12'
-(microtype)             (new value: 12.0pt) on input line 32.
+(microtype)             (new value: 12.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 32.
+(microtype)             (new value: 10.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/8'
-(microtype)             (new value: 8.0pt) on input line 32.
+(microtype)             (new value: 8.0pt) on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 32.
+(Font)              scaled to size 10.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 32.
+(Font)              scaled to size 8.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 32.
+(Font)              scaled to size 12.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 32.
+(Font)              scaled to size 10.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 32.
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 32.
+(Font)              scaled to size 8.0pt on input line 34.
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 34.
  (/usr/share/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-eur.cfg
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 32.
+(Font)              scaled to size 9.0pt on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 32.
+(microtype)             (new value: 9.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 32.
+(microtype)             (new value: 7.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 32.
+(microtype)             (new value: 5.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 32.
+(microtype)             (new value: 9.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 32.
+(microtype)             (new value: 7.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 32.
+(microtype)             (new value: 5.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 32.
+(microtype)             (new value: 9.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 32.
+(microtype)             (new value: 7.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 32.
+(microtype)             (new value: 5.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 32.
+(microtype)             (new value: 9.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 32.
+(microtype)             (new value: 7.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 32.
+(microtype)             (new value: 5.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 32.
+(microtype)             (new value: 9.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 32.
+(microtype)             (new value: 7.0pt) on input line 34.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 32.
+(microtype)             (new value: 5.0pt) on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 32.
+(Font)              scaled to size 7.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 32.
+(Font)              scaled to size 5.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 32.
+(Font)              scaled to size 9.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 32.
+(Font)              scaled to size 7.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 5.0pt on input line 32.
+(Font)              scaled to size 5.0pt on input line 34.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_rlbtkr.enc}]
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 39.
+(Font)              scaled to size 12.0pt on input line 41.
 Package microtype Info: Fixing zero \fontdimen 6 for font `OMX/MnSymbolE/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 41.
+(microtype)             (new value: 10.95pt) on input line 43.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolA/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 41.
+(microtype)             (new value: 10.95pt) on input line 43.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolB/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 41.
+(microtype)             (new value: 10.95pt) on input line 43.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolC/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 41.
+(microtype)             (new value: 10.95pt) on input line 43.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/MnSymbolD/m/n/10.95'
-(microtype)             (new value: 10.95pt) on input line 41.
+(microtype)             (new value: 10.95pt) on input line 43.
 LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 41.
- [1{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc}] (./paper.bbl)
+(Font)              scaled to size 10.95pt on input line 43.
+<../figures/class_weights.png, id=80, 959.5047pt x 559.1289pt>
+File: ../figures/class_weights.png Graphic file (type png)
+<use ../figures/class_weights.png>
+Package pdftex.def Info: ../figures/class_weights.png  used on input line 56.
+(pdftex.def)             Requested size: 341.11534pt x 198.76942pt.
+LaTeX Font Info:    Font shape `T1/SourceSerifPro-LF/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 57.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/SourceSerifPro-LF/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+ [1{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_lseshj.enc} <../figures/class_weights.png>]
+Overfull \hbox (2.5662pt too wide) in paragraph at lines 86--87
+ [][] 
+ []
 
-Package caption Warning: Unused \captionsetup[table] on input line 172.
-See the caption package documentation for explanation.
+<../figures/ltas.png, id=92, 953.0004pt x 558.4062pt>
+File: ../figures/ltas.png Graphic file (type png)
+<use ../figures/ltas.png>
+Package pdftex.def Info: ../figures/ltas.png  used on input line 92.
+(pdftex.def)             Requested size: 341.11534pt x 199.8758pt.
+<../figures/ltcc.png, id=93, 970.3452pt x 558.4062pt>
+File: ../figures/ltcc.png Graphic file (type png)
+<use ../figures/ltcc.png>
+Package pdftex.def Info: ../figures/ltcc.png  used on input line 125.
+(pdftex.def)             Requested size: 341.11534pt x 196.30566pt.
+[2{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc} <../figures/ltas.png>]
+File: ../figures/ltcc.png Graphic file (type png)
+<use ../figures/ltcc.png>
+Package pdftex.def Info: ../figures/ltcc.png  used on input line 152.
+(pdftex.def)             Requested size: 341.11534pt x 196.30566pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./paper.bbl [3 <../figures/ltcc.png>] [4])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 179.
 See the caption package documentation for explanation.
 
-[2{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}] (./paper.aux)
+[5{/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc}] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 679808BA6A0FE329360CB1A4BBE81C7B;827.
+(rerunfilecheck)             Checksum: 160F4B12B91DB189BF9697BAE97DD9AA;2301.
  ) 
 Here is how much of TeX's memory you used:
- 33029 strings out of 476076
- 611102 string characters out of 5793775
- 1941187 words of memory out of 5000000
- 54404 multiletter control sequences out of 15000+600000
- 969763 words of font info for 212 fonts, out of 8000000 for 9000
+ 33157 strings out of 476076
+ 614039 string characters out of 5793775
+ 1942187 words of memory out of 5000000
+ 54502 multiletter control sequences out of 15000+600000
+ 981295 words of font info for 218 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,11n,131p,1107b,989s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,11n,131p,1107b,992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Bold.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-It.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Regular.pfb>
-Output written on paper.pdf (3 pages, 185999 bytes).
+Output written on paper.pdf (6 pages, 2953726 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 56909 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 135 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 59028 words of extra memory for PDF output out of 61914 (max. 10000000)
 
