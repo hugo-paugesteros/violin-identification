@@ -50,10 +50,17 @@ This paper is structured as follows: Section \ref{s:methodology} presents the me
 
 \subsection{Dataset}
 
-During the Bilbao Project, thirteen violins were built in order to relate their material and geometrical characteristics with their tonal quality \citep{fritzBilbaoProjectSearching2021}. These violins have been played by twenty-three professional violinists, each of them having recorded a scale on each violin and a short musical excerpt on a violin of their choice. The recordings were made under the same conditions in a large rehearsal room at the Bilbao conservatory, keeping the distance between the player and the microphone constant. Our dataset thus consists of $13 \times 23$ scales plus $1 \times 23$ musical excerpts.
+During the Bilbao Project, thirteen violins were built in order to relate their material and geometrical characteristics with their tonal quality \citep{fritzBilbaoProjectSearching2021}. These violins have been played in 2019 by twenty-three professional violinists, each of them having recorded a scale on each violin and a short musical excerpt on a violin of their choice. The recordings were made under the same conditions in a large rehearsal room at the Bilbao conservatory, keeping the distance between the player and the microphone constant. Our dataset thus consists of $13 \times 23$ scales plus $1 \times 23$ musical excerpts.
 
 \begin{figure}[h]
 	\includegraphics[width=0.8\textwidth]{../figures/class_weights.png}
+	\caption{Recording time available with respect to players and with respect to violins}
+\end{figure}
+
+Six of those thirteen Bilbao violins (violins number 1, 4, 5, 9, 11 and 13) were brought to the 2024 Villfavard Workshop and were recorded again. They were played freely by four new players in a small room, under rather different conditions than during the 2019 recordings.
+
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{../figures/class_weights_2024.png}
 	\caption{Recording time available with respect to players and with respect to violins}
 \end{figure}
 
@@ -61,9 +68,9 @@ During the Bilbao Project, thirteen violins were built in order to relate their 
 
 The following features have been compared for the classification task :
 
-\subsubsection{Long-Term Average Spectra (LTAS)}{
+\subsubsection{Long Time Average Spectra (LTAS)}{
 
-The Average Power Spectral Density (PSD) of a recording is obtained by dividing the input signal into overlapping segments, then calculating the windowed DFT of each segment and finally averaging the power of those DFTs :
+The Long Time Average Spectra (LTAS) of a recording is obtained by dividing the input signal into overlapping segments, then calculating the windowed DFT of each segment and finally averaging the power of those DFTs :
 
 \begin{figure}[!h]
 	\begin{tikzpicture}
@@ -86,7 +93,7 @@ The Average Power Spectral Density (PSD) of a recording is obtained by dividing 
 	\end{tikzpicture}
 \end{figure}
 
-LTAS has been used [?] in order to compare the tonal quality of violins.
+LTAS has been used in \cite{buenCOMPARINGSOUNDGOLDEN2005} in order to compare the tonal quality of violins. More specifically, the sound of old Italians violins (Stradivari/Guarneri) and modern violins has been compared. The author concludes that differences between these two groups can be shown using LTAS
 
 \begin{figure}[h]
 	\includegraphics[width=0.8\textwidth]{../figures/ltas.png}

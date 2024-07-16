@@ -1,17 +1,18 @@
 # Fdb version 4
-["bibtex paper"] 1720715022.38245 "paper.aux" "paper.bbl" "paper" 1720715080.42727 0
-  "./bibliography.bib" 1718368313.08751 15545 0edafe45874cbbf1cf289db17d9a8571 ""
+["bibtex paper"] 1721130142.27467 "paper.aux" "paper.bbl" "paper" 1721130144.39691 0
+  "./bibliography.bib" 1721055099.40008 20104 94ea6471be0ccf5c7de6bb1c4be7619c ""
   "./bibliography.bst" 1715194722 70979 df74e1b385a5e7bbe32d10506656837e ""
-  "paper.aux" 1720715080.29084 3677 02410bd5870e4fa59dd0ff769c4d47b1 "pdflatex"
+  "paper.aux" 1721130144.25336 3979 fc3c56c0279ff0bec543c5a2762a2506 "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1720715078.68974 "/home/hugo/Thèse/identification/paper/paper.tex" "paper.pdf" "paper" 1720715080.42738 0
+["pdflatex"] 1721130142.3138 "/home/hugo/Thèse/identification/paper/paper.tex" "paper.pdf" "paper" 1721130144.39701 0
   "../figures/class_weights.png" 1718905350.35751 133311 a9d10024542f030cb68b4aac6346bb35 ""
+  "../figures/class_weights_2024.png" 1721050308.60337 109680 345944e5bc2f382a2ee8803376d699d7 ""
   "../figures/ltas.png" 1718980546.59017 1486735 242244b15cbcfbe9cf386c32d645ed5e ""
   "../figures/ltcc.png" 1719952352.4575 333901 2cd844d3276f4101b41d420e41eb5843 ""
-  "/home/hugo/Thèse/identification/paper/paper.tex" 1720715078.53751 9050 27bc393ca9daa8844856c50f0b950e1c ""
+  "/home/hugo/Thèse/identification/paper/paper.tex" 1721130140.02336 9758 7787764f75981b5512029e0483fe98db ""
   "/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1716849630 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc" 1716849630 3433 7734f79d46d219d7347f02050533a56b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_5mjl2d.enc" 1716849630 2996 4eac4f75d003875749efc5dde4ee7502 ""
@@ -260,11 +261,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1716849630 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1718362857.42746 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1718362841 7112994 7e308cd266823c7ea07fbaa3f354086e ""
-  "paper.aux" 1720715080.29084 3677 02410bd5870e4fa59dd0ff769c4d47b1 "pdflatex"
-  "paper.bbl" 1720715022.41751 998 4581b0cfc98b477b6e860c100cbb2f87 "bibtex paper"
-  "paper.out" 1720715080.29084 2301 160f4b12b91db189bf9697bae97dd9aa "pdflatex"
+  "paper.aux" 1721130144.25336 3979 fc3c56c0279ff0bec543c5a2762a2506 "pdflatex"
+  "paper.bbl" 1721130142.3067 1174 e7faeb524d71165b266717bfd53715e6 "bibtex paper"
+  "paper.out" 1721130144.25336 2305 037d2dd9948513f5e7c29c4df962501f "pdflatex"
   "paper.sty" 1715194722 6078 4dc9ce2eaebd2d855e0e2b197ae60704 ""
-  "paper.tex" 1720715078.53751 9050 27bc393ca9daa8844856c50f0b950e1c ""
+  "paper.tex" 1721130140.02336 9758 7787764f75981b5512029e0483fe98db ""
   (generated)
   "paper.aux"
   "paper.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.14)  11 JUL 2024 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.6.14)  16 JUL 2024 13:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1173,24 +1173,29 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/SourceSerifPro-LF/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
  [1{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/share/texmf-dist/fonts/enc/dvips/sourceserifpro/a_lseshj.enc} <../figures/class_weights.png>]
-Overfull \hbox (2.5662pt too wide) in paragraph at lines 86--87
+<../figures/class_weights_2024.png, id=92, 953.0004pt x 558.4062pt>
+File: ../figures/class_weights_2024.png Graphic file (type png)
+<use ../figures/class_weights_2024.png>
+Package pdftex.def Info: ../figures/class_weights_2024.png  used on input line 63.
+(pdftex.def)             Requested size: 341.11534pt x 199.8758pt.
+
+Overfull \hbox (2.5662pt too wide) in paragraph at lines 93--94
  [][] 
  []
 
-<../figures/ltas.png, id=92, 953.0004pt x 558.4062pt>
+<../figures/ltas.png, id=95, 953.0004pt x 558.4062pt>
 File: ../figures/ltas.png Graphic file (type png)
 <use ../figures/ltas.png>
-Package pdftex.def Info: ../figures/ltas.png  used on input line 92.
+Package pdftex.def Info: ../figures/ltas.png  used on input line 99.
 (pdftex.def)             Requested size: 341.11534pt x 199.8758pt.
-<../figures/ltcc.png, id=93, 970.3452pt x 558.4062pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc} <../figures/class_weights_2024.png>]
+<../figures/ltcc.png, id=105, 970.3452pt x 558.4062pt>
 File: ../figures/ltcc.png Graphic file (type png)
 <use ../figures/ltcc.png>
-Package pdftex.def Info: ../figures/ltcc.png  used on input line 125.
-(pdftex.def)             Requested size: 341.11534pt x 196.30566pt.
-[2{/usr/share/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc} <../figures/ltas.png>]
-File: ../figures/ltcc.png Graphic file (type png)
-<use ../figures/ltcc.png>
-Package pdftex.def Info: ../figures/ltcc.png  used on input line 152.
+Package pdftex.def Info: ../figures/ltcc.png  used on input line 132.
 (pdftex.def)             Requested size: 341.11534pt x 196.30566pt.
 
 
@@ -1199,7 +1204,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./paper.bbl [3 <../figures/ltcc.png>] [4])
+File: ../figures/ltcc.png Graphic file (type png)
+<use ../figures/ltcc.png>
+Package pdftex.def Info: ../figures/ltcc.png  used on input line 159.
+(pdftex.def)             Requested size: 341.11534pt x 196.30566pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <../figures/ltas.png>] [4 <../figures/ltcc.png>] (./paper.bbl)
 
 Package caption Warning: Unused \captionsetup[sub] on input line 179.
 See the caption package documentation for explanation.
@@ -1210,21 +1222,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 160F4B12B91DB189BF9697BAE97DD9AA;2301.
+(rerunfilecheck)             Checksum: 037D2DD9948513F5E7C29C4DF962501F;2305.
  ) 
 Here is how much of TeX's memory you used:
- 33157 strings out of 476076
- 614039 string characters out of 5793775
- 1942187 words of memory out of 5000000
- 54502 multiletter control sequences out of 15000+600000
- 981295 words of font info for 218 fonts, out of 8000000 for 9000
+ 33179 strings out of 476076
+ 614805 string characters out of 5793775
+ 1944187 words of memory out of 5000000
+ 54512 multiletter control sequences out of 15000+600000
+ 982407 words of font info for 225 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,11n,131p,1107b,992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol10.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Bold.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-It.pfb></usr/share/texmf-dist/fonts/type1/adobe/sourceserifpro/SourceSerifPro-Regular.pfb>
-Output written on paper.pdf (6 pages, 2953726 bytes).
+Output written on paper.pdf (6 pages, 3068488 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 135 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 59028 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 59033 words of extra memory for PDF output out of 61914 (max. 10000000)
 

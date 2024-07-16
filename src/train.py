@@ -12,19 +12,23 @@ config = {
     'frame_size': 1024*2,
     'hop_size': 1024*2,
     'n_coeff': 100,
+    'size': 10
 }
 
 base_config = {
     # 'frame_size': [2**n for n in range(11, 16)],
     'frame_size': [2048],
     'hop_ratio': [1],
-    'n_coeff': [10*i for i in range(5,6)],
+    # 'n_coeff': [10*i for i in range(5,10)],
+    'n_coeff': [60],
     'sr': [10000],
+    'size': [10],
 }
 
 configs = [{
     'clf': [sklearn.neighbors.KNeighborsClassifier()],
-    'n_neighbors': [10*i for i in range(1,10)],
+    # 'n_neighbors': [10*i+1 for i in range(4,16, 2)],
+    'n_neighbors': [141],
     'p': [1],
     'weights': ['distance'], 
 },
@@ -36,7 +40,7 @@ configs = [{
 configs = [config | base_config for config in configs]
 
 train_cdt = 'type == "scale"'
-test_cdt  = 'type == "free"'
+test_cdt  = 'type == "villefavard"'
 
 df = pd.read_pickle('recordings.pkl')
 df = df.query(f'{train_cdt} or {test_cdt}')
@@ -47,8 +51,8 @@ def train(config):
     data = []
     for index, row in tqdm.tqdm(df.iterrows(), total=df.shape[0]):
         y, _    = librosa.load(str(row['file']), sr=config['sr'])
-        for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=10*config['sr'])[::10*config['sr']]):
-        # for audio in np.split(y, np.arange(SIZE, len(y), SIZE)):
+        # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=10*config['sr'])[::10*config['sr']]):
+        for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])):
 
             features = y
             for step in pipes['MFCC_welch']:

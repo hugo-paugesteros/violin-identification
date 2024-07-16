@@ -6,16 +6,16 @@ from .pipeline import Pipeline
 
 ## GRIDS
 dataset_grid = {
-    'dataset__frame_size': [2048],
+    'dataset__frame_size': [1024, 2048, 4096],
     'dataset__hop_ratio': [1],
     # 'dataset__n_coeff': [10*i for i in range(5,6)],
-    'dataset__sr': [10000],
+    'dataset__sr': [10000, 22050],
     'dataset__features': ['MFCC_welch'],
 }
 clf_grids = [{
     'clf': [sklearn.neighbors.KNeighborsClassifier()],
-    'clf__n_neighbors': [10*i+1 for i in range(5,6)],
-    'clf__p': [1],
+    'clf__n_neighbors': [10*i+1 for i in range(1,10)],
+    'clf__p': [1, 2],
     'clf__weights': ['distance'], 
 },
 # {
@@ -37,7 +37,7 @@ df = pd.read_pickle('recordings.pkl')
 df = df[df.type == 'scale']
 
 grid_search = sklearn.model_selection.GridSearchCV(pipeline, grid, verbose=0, cv=5, n_jobs=None)
-grid_search.fit(df, df.violin)
+grid_search.fit(df, df['violin'])
 
 df = pd.DataFrame(grid_search.cv_results_)
 df.to_pickle('results.pkl')
