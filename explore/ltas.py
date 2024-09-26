@@ -1,7 +1,7 @@
 import pandas as pd
 import librosa
 import numpy as np
-from features import *
+from src.features import *
 import tqdm
 import matplotlib
 import matplotlib.pyplot as plt

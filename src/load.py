@@ -48,5 +48,15 @@ for violin in [1, 4, 5, 9, 11, 13]:
             'type': 'villefavard'
         })
 
+# D'alembert studio july 2024
+for violin in [4, 5]:
+    file = f'/home/hugo/Thèse/Data/Bilbao(4-5)/{violin}.mp3'
+    data.append({
+        'file': file,
+        'player': 99,
+        'violin': violin,
+        'type': 'dalembert'
+    })
+
 df = pd.DataFrame(data)
 df.to_pickle('recordings.pkl')

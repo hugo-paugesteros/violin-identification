@@ -8,6 +8,10 @@ def pop(S, **kwargs):
 def db(S, **kwargs):
     return 10 * np.log10(S)
 
+def mel(S, frame_size, sr, n_coeff, **kwargs):
+    melfb = librosa.filters.mel(sr=sr, n_fft=frame_size, n_mels=n_coeff)
+    return melfb.dot(S)
+
 def LTAS_stft(y, frame_size, hop_size, **kwargs):
     ltas = librosa.stft(y=y, n_fft=frame_size, hop_length=hop_size).T
     ltas = np.abs(ltas)**2
@@ -35,7 +39,7 @@ def MFCC(S, frame_size, hop_size, sr, n_coeff, **kwargs):
 
 def MFCC_librosa(y, frame_size, hop_size, sr, n_coeff, **kwargs):
     mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=n_coeff, n_fft=frame_size, hop_length=hop_size).T
-    mfcc = np.median(mfcc, axis=0)
+    mfcc = np.mean(mfcc, axis=0)
     return mfcc
 
 pipes = {
@@ -46,5 +50,6 @@ pipes = {
     'LTCC_stft': [LTAS_stft, db, IRFFT, pop],
     'MFCC_welch': [LTAS, db, MFCC],
     'MFCC_stft': [LTAS_stft, db, MFCC],
-    'MFCC_librosa': [MFCC_librosa],
+    'MFCC_librosa': [MFCC_librosa, pop],
+    'MEL_welch': [LTAS, mel, db]
 }

@@ -1,7 +1,7 @@
 import pandas as pd
 import librosa
 import numpy as np
-from features import *
+from src.features import *
 import tqdm
 import matplotlib
 import matplotlib.pyplot as plt
@@ -13,7 +13,7 @@ plt.style.use('styles.mplstyle')
 SR          = 22050
 FRAME_SIZE  = 2048
 HOP_SIZE    = FRAME_SIZE
-SIZES       = [1*SR, 30*SR, 60*SR]
+SIZES       = [1*SR, 10*SR, 30*SR, 60*SR]
 
 # Data
 df = pd.read_pickle('recordings.pkl')
@@ -41,7 +41,7 @@ std = features.groupby(['size']).std()
 fig, ax = plt.subplots(figsize=(16,9))
 # ax.bar(freqs, scores, align='center', width=20)
 for size in range(mean.shape[0]):
-    # ax.plot(freqs, mean.iloc[size])
+    ax.plot(freqs, mean.iloc[size], label='_nolegend_')
     ax.fill_between(
         freqs,
         np.maximum(mean.iloc[size] - std.iloc[size], 0),

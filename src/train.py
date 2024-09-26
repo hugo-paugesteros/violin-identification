@@ -19,32 +19,35 @@ base_config = {
     # 'frame_size': [2**n for n in range(11, 16)],
     'frame_size': [2048],
     'hop_ratio': [1],
-    # 'n_coeff': [10*i for i in range(5,10)],
+    # 'n_coeff': [10*i for i in range(4,10, 2)],
     'n_coeff': [60],
     'sr': [10000],
-    'size': [10],
+    'size': [60]
 }
 
 configs = [{
     'clf': [sklearn.neighbors.KNeighborsClassifier()],
-    # 'n_neighbors': [10*i+1 for i in range(4,16, 2)],
-    'n_neighbors': [141],
+    # 'n_neighbors': [10*i+1 for i in range(4,10, 2)],
+    'n_neighbors': [61],
     'p': [1],
     'weights': ['distance'], 
 },
-# {
-#     'clf': [sklearn.svm.SVC(decision_function_shape='ovr')]
-# }
+{
+    'clf': [sklearn.svm.SVC(decision_function_shape='ovr')]
+},
+{
+    'clf': [sklearn.svm.SVC(decision_function_shape='ovr')]
+}
 ]
 
 configs = [config | base_config for config in configs]
 
 train_cdt = 'type == "scale"'
-test_cdt  = 'type == "villefavard"'
+test_cdt  = 'type == "free"'
 
 df = pd.read_pickle('recordings.pkl')
 df = df.query(f'{train_cdt} or {test_cdt}')
-
+print(df)
 def train(config):
 
     # Features
@@ -55,7 +58,7 @@ def train(config):
         for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])):
 
             features = y
-            for step in pipes['MFCC_welch']:
+            for step in pipes['MFCC_librosa']:
                 features = step(features, **config)
 
             dic = row.to_dict()
@@ -92,6 +95,16 @@ def train(config):
     print(f'Train score : {pipeline.score(x_train, y_train)}')
     print(f'Test score : {pipeline.score(x_test, y_test)}')
 
+    # Save
+    y_pred = pipeline.predict(x_test)
+    for i, (_, row) in enumerate(features_df.query(test_cdt).iterrows()):
+        folder = 'good' if y_pred[i] == y_test[i] else 'bad'
+        scipy.io.wavfile.write(
+            f'data/{folder}/{str(row['file']).replace('/', '-')}{i}.wav',
+            config['sr'],
+            row['audio']
+        )
+
 configs = sklearn.model_selection.ParameterGrid(configs)
 
 for config in configs:
@@ -99,16 +112,6 @@ for config in configs:
     print(config)
     train(config)
     print('---------------------------')
-
-# # Save
-# y_pred = pipeline.predict(x_test)
-# for i, (_, row) in enumerate(features_df[test_cdt].iterrows()):
-#     folder = 'good' if y_pred[i] == y_test[i] else 'bad'
-#     scipy.io.wavfile.write(
-#         f'data/{folder}/{str(row['file']).replace('/', '-')}{i}.wav',
-#         SR,
-#         row['audio']
-#     )
 
 # # Plots
 # disp = sklearn.metrics.ConfusionMatrixDisplay.from_estimator(

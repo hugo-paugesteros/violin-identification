@@ -3,6 +3,7 @@
 \usepackage{tikz}
 \usepackage{multirow}
 \usepackage{dirtytalk}
+\usepackage{float}
 \usetikzlibrary{arrows,positioning,shapes}
 \bibliographystyle{bibliography}
 
@@ -33,16 +34,18 @@
 \maketitle
 
 % Enter abstract:
-This is the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Few articles have addressed the issue of identifying individual instruments of the same type from their recordings. In this paper, we explore violin sound identification using audio features and machine learning algorithms. A review and a comparison between different approaches is made, which allow
 
 \end{titlepage}
 
 % Enter main text:
 \section{Introduction}\label{s:introduction}
  
-Musical instruments classification is a Musical Information Retrieval (MIR) task which consists of determining the instruments present in a recording. This topic has been extensively studied in the literature, and for monophonic recordings (containing only one instrument), state-of-the-art models reach often almost $100\%$. However, few articles have addressed the issue of identifying individual instruments of the same type.
+Musical instruments classification is a Musical Information Retrieval (MIR) task which consists of determining the instruments present in a recording. This topic has been extensively studied in the literature, and for monophonic recordings (containing only one instrument), state-of-the-art models reach often almost $100\%$. However, few articles have addressed the issue of identifying individual instruments of the same type, let alone from the violin familiy specifically.
 
-In \cite{zhaoViolinistIdentificationUsing2022}
+In \cite{lukasikLongTermCepstral2010b}, 
+
+The goal of this paper is to review and compare different ways of tackling this task, from data collection to data processing. Guidelines regarding recording sessions are discussed and a Long-Time version of MFCCs is introduced.
 
 This paper is structured as follows: Section \ref{s:methodology} presents the methodology of our experiment, describing data collection, features extraction, data exploration and finally classification using machine learning methods. Results of the experiments are discussed in Section \ref{s:results}. Finally, conlusions are drawn in Section \ref*{s:conclusions}, which also outlines possible future developments. 
 
@@ -163,20 +166,41 @@ LTAS has been used in \cite{buenCOMPARINGSOUNDGOLDEN2005} in order to compare th
 
 \subsection{Data exploration}
 
+\subsubsection{Variability of LTAS}
+
 \subsubsection{Feature selection}
 
 \subsection{Classification}
 
+We compare the results of three popular classification algorithms : K-Nearest Neighbours, Support Vector Machines and Multilayer Perceptron. These three classifiers use different learning strategies and thus will give different results on our data.
+
 \subsubsection{K-Nearest Neighbours}
+
+K-Nearest Neighbours is a method that finds the closest training points to a new test point and predicts its label from them. Since the prediction is made directly from the training data, this method is non-parametric (or non-generalizing), which is an advantage when the decision boundary is irregular.
+
 
 \subsubsection{Support Vector Machines}
 
+Support Vector Machines is a supervised learning method using for classification. It works by finding an optimal hyperplane that maximizes the distance between each class in the training data. This algorithm is computationally expensive but generally has good generalisation properties.
+
 \subsubsection{Multilayer Perceptron}
+
+Multilayer perceptron is a supervised learning method that learns a function $f : \mathbb{R}^n \to \mathbb{R}^o$ using training data. To do so, it uses layers of neurons as in Figure \ref{f:mlp}. Each neuron transforms the result from the previous layer by forming a weighted linear summation $w_0 + w_1 x_1 + \dots + w_n x_n$ followed by a non-linear activation function.
+
+\begin{figure}[H]
+	\includegraphics[width=0.5\textwidth]{../figures/multilayerperceptron_network.png}
+	\caption{Multilayer Perceptron}
+	\label{f:mlp}
+\end{figure}
+
+This method has demonstrated effectiveness in various domains, as the non-linear activation functions can model complex relationships in data while hidden layers can learn hierarchical representations from input data. However, MLPs are prone to overfitting, especially on small datasets.
 
 \section{Results}\label{s:results}
 
-\begin{table}[h!]
-\caption{ the basic table}  
+In this section we present the results of the classification task performed on different subsets of the dataset. We compare the results of each feature paired with each classifier. The results showed below are the one after fine-tuning the hyper-parameters, which can be hyper-parameters in the computation of the feature (sample rate, sample duration, ...) or hyper-paramters of the classification algorithm ($k$ for K-NN, for instance).
+
+\begin{table}[H]
+\caption{Results using scales as training data and muscial excertps as test data}  
 \centering
 	\begin{tabular}{c c c c}
 		\textbf{Method} & \textbf{Feature} & \textbf{Train} & \textbf{Test} \\
@@ -195,6 +219,27 @@ LTAS has been used in \cite{buenCOMPARINGSOUNDGOLDEN2005} in order to compare th
 		\hline
 	\end{tabular}
 \end{table}
+
+\begin{table}[H]
+	\caption{Results using cross-validation on the entire dataset}  
+	\centering
+		\begin{tabular}{c c c c}
+			\textbf{Method} & \textbf{Feature} & \textbf{Train} & \textbf{Test} \\
+			\hline\hline
+			\multirow{3}{3em}{K-NN} & LTAS & 100\% & 37\% \\
+			& LTCC & 100\% & 100\% \\
+			& MFCC & 100\% & 100\% \\
+			\hline
+			\multirow{3}{3em}{SVM} & LTAS & 100\% & 37\% \\
+			& LTCC & 100\% & 100\% \\
+			& MFCC & 100\% & 100\% \\
+			\hline
+			\multirow{3}{3em}{MLP} & LTAS & 100\% & 37\% \\
+			& LTCC & 100\% & 100\% \\
+			& MFCC & 100\% & 100\% \\
+			\hline
+		\end{tabular}
+	\end{table}
 
 \section{Conclusions}\label{s:conclusions}
 
