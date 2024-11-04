@@ -41,7 +41,8 @@ class Dataset(BaseEstimator):
             y, _    = librosa.load(str(row['file']), sr=self.sr, offset=offset, duration=duration)
             
             # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=self.sample_duration * self.sr)[::self.sample_duration * self.sr]):
-            for audio in np.split(y, np.arange(self.sample_duration * self.sr, len(y), self.sample_duration * self.sr)):
+            # for audio in np.split(y, np.arange(self.sample_duration * self.sr, len(y), self.sample_duration * self.sr)):
+            for audio in [y]:
 
                 features = y
                 for step in pipes[self.features]:

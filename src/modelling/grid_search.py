@@ -10,7 +10,7 @@ dataset_grid = {
     'dataset__hop_ratio': [1],
     # 'dataset__n_coeff': [10*i for i in range(5,6)],
     'dataset__sr': [10000],
-    'dataset__features': ['LTAS_welch_db', 'MFCC_welch', 'LTCC_stft'],
+    'dataset__features': ['MFCC_welch'],
     'dataset__n_coeff': [100],
     # 'dataset__sample_duration': [10, 20, 30],
 }
@@ -38,6 +38,7 @@ pipeline = Pipeline([
 
 ## Dataset
 df = pd.read_pickle('data/processed/dataset_cnsm.pkl')
+df = df[(df.violin.isin(['A', 'B', 'C']))]
 
 ## Grid search
 grid_search = sklearn.model_selection.GridSearchCV(pipeline, grid, verbose=0, cv=5, n_jobs=-1)

@@ -7,30 +7,30 @@ import tqdm
 
 from src.features import *
 
-config = {
-    'sr': 10000,
-    'frame_size': 1024*2,
-    'hop_size': 1024*2,
-    'n_coeff': 100,
-    'size': 10,
-}
+# config = {
+#     'sr': 10000,
+#     'frame_size': 1024*2,
+#     'hop_size': 1024*2,
+#     'n_coeff': 100,
+#     'size': 10,
+# }
 
 base_config = {
     # 'frame_size': [2**n for n in range(11, 16)],
     'frame_size': [2048],
     'hop_ratio': [1],
     # 'n_coeff': [10*i for i in range(4,10, 2)],
-    'n_coeff': [60],
+    'n_coeff': [100],
     'sr': [10000],
     'size': [60],
-    'feature': ['LTAS_welch_db', 'MFCC_welch', 'LTCC_welch']
+    'feature': ['MFCC_welch']
 }
 
 configs = [
 {
     'clf': [sklearn.neighbors.KNeighborsClassifier()],
     # 'n_neighbors': [10*i+1 for i in range(4,10, 2)],
-    'n_neighbors': [3],
+    'n_neighbors': [41],
     'p': [1],
     'weights': ['distance'], 
 },
@@ -44,15 +44,15 @@ configs = [
 
 configs = [config | base_config for config in configs]
 
-train_cdt = 'extract == "free"'
-test_cdt  = 'extract != "free"'
+train_cdt = 'player.isin(["Paul"])'
+test_cdt = 'player.isin(["Paul"])'
+# test_cdt  = 'session == 2'
 
-df = pd.read_pickle('data/processed/cnsm.pkl')
-# df = pd.read_pickle('recordings.pkl')
+df = pd.read_pickle('data/processed/dataset_cnsm.pkl')
+df = df[(df.violin.isin(['A', 'B', 'C']))]
 df = df.query(f'{train_cdt} or {test_cdt}')
-print(df)
-def train(config):
 
+def train(config):
     # Features
     data = []
 
@@ -66,9 +66,10 @@ def train(config):
         #     y
         # )
         # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=10*config['sr'])[::10*config['sr']]):
-        for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])):
+        # for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])):
+        for audio in [y]:
 
-            features = y
+            features = audio
             for step in pipes[config['feature']]:
                 features = step(features, **config)
 
@@ -107,14 +108,14 @@ def train(config):
     print(f'Test score : {pipeline.score(x_test, y_test)}')
 
     # Save
-    y_pred = pipeline.predict(x_test)
-    for i, (_, row) in enumerate(features_df.query(test_cdt).iterrows()):
-        folder = 'good' if y_pred[i] == y_test[i] else 'bad'
-        scipy.io.wavfile.write(
-            f'data/{folder}/{str(row['file']).replace('/', '-')}{i}.wav',
-            config['sr'],
-            row['audio']
-        )
+    # y_pred = pipeline.predict(x_test)
+    # for i, (_, row) in enumerate(features_df.query(test_cdt).iterrows()):
+    #     folder = 'good' if y_pred[i] == y_test[i] else 'bad'
+    #     scipy.io.wavfile.write(
+    #         f'data/{folder}/{str(row['file']).replace('/', '-')}{i}.wav',
+    #         config['sr'],
+    #         row['audio']
+    #     )
 
 configs = sklearn.model_selection.ParameterGrid(configs)
 
