@@ -7,14 +7,6 @@ import tqdm
 
 from src.features import *
 
-# config = {
-#     'sr': 10000,
-#     'frame_size': 1024*2,
-#     'hop_size': 1024*2,
-#     'n_coeff': 100,
-#     'size': 10,
-# }
-
 base_config = {
     # 'frame_size': [2**n for n in range(11, 16)],
     'frame_size': [2048],
@@ -44,13 +36,15 @@ configs = [
 
 configs = [config | base_config for config in configs]
 
-train_cdt = 'player.isin(["Paul"])'
-test_cdt = 'player.isin(["Paul"])'
-# test_cdt  = 'session == 2'
-
 df = pd.read_pickle('data/processed/dataset_cnsm.pkl')
 df = df[(df.violin.isin(['A', 'B', 'C']))]
-df = df.query(f'{train_cdt} or {test_cdt}')
+
+train_cdt = df.session == 1
+test_cdt = ~train_cdt
+
+print(train_cdt.value_counts())
+
+df = df[train_cdt | test_cdt]
 
 def train(config):
     # Features
@@ -81,14 +75,13 @@ def train(config):
             data.append(dic)
 
     features_df = pd.DataFrame(data)
+    features_df.to_pickle('data/processed/features_cnsm.pkl')
 
     # Test / Train
-    # train_cdt = (features_df['player'].isin(list(range(1,10))))
-    # train_cdt = (features_df['player'].isin(list(range(1,20))))
-    x_train = np.vstack(features_df.query(train_cdt).features)
-    y_train = features_df.query(train_cdt).violin.to_numpy()
-    x_test = np.vstack(features_df.query(test_cdt).features)
-    y_test = features_df.query(test_cdt).violin.to_numpy()
+    x_train = np.vstack(features_df[train_cdt.to_numpy()].features)
+    y_train = features_df[train_cdt.to_numpy()].violin.to_numpy()
+    x_test = np.vstack(features_df[test_cdt.to_numpy()].features)
+    y_test = features_df[test_cdt.to_numpy()].violin.to_numpy()
 
     # Train
     # nca = sklearn.neighbors.NeighborhoodComponentsAnalysis(max_iter=1, verbose=1)

@@ -6,7 +6,7 @@ import tqdm
 import matplotlib
 import matplotlib.pyplot as plt
 
-plt.style.use('styles.mplstyle')
+plt.style.use('~/Thèse/styles.mplstyle')
 
 # Params
 SR          = 10000
@@ -46,5 +46,5 @@ ax.set_ylabel('Amplitude (dB)')
 ax.set_xscale('log')
 ax.set_xlim([200, 4000])
 ax.legend()
-plt.savefig('figures/mfcc.png', bbox_inches='tight', dpi=300)
+plt.savefig('reports/figures/mfcc.png', bbox_inches='tight', dpi=300)
 plt.show()

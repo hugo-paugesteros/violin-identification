@@ -175,7 +175,7 @@ for extract in extracts:
 
     dfs.append(df)
 
-df = pd.concat(dfs, axis=0)
+df = pd.concat(dfs, axis=0, ignore_index=True)
 
 # Save dataset
 df.to_pickle('data/processed/dataset_cnsm.pkl')
