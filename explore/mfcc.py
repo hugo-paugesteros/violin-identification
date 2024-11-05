@@ -16,7 +16,7 @@ N_COEFF     = FRAME_SIZE//2+1
 PLAYERS = [3,4,5,6,7,8,11,12,14,16,17,18,19,21,22,24]
 
 # Data
-df = pd.read_pickle('recordings.pkl')
+df = pd.read_pickle('data/processed/dataset_bilbao.pkl')
 df = df[df['type'] == 'scale']
 df = df[df['violin'].isin(PLAYERS)]
 
