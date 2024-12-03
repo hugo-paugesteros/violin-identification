@@ -1,0 +1,5 @@
+Few articles have addressed the issue of identifying individual instruments of the same type from their recordings. In this paper, we investigate violin sound identification using two datasets comprising different recordings from multiple violinists on multiple violins. 
+
+We compare several long-term audio features and evaluate their performance in violin classification using classical machine learning algorithms. Long-term MFCCs were shown to effectively distinguish individual violins beyond the variabilities induced by the players, enabling violin recognition from recordings. The influence of key parameters (including the number of violinists, recording time and musical excerpts) on the performance of the recognition was assessed. 
+
+This provides guidelines to optimize future data collection in the context of capturing the sound signature of a violin.

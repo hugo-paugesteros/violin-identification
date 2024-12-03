@@ -4,16 +4,21 @@ import matplotlib.pyplot as plt
 import librosa
 import numpy as np
 
-plt.style.use('styles.mplstyle')
+plt.style.use('/home/hugo/Thèse/styles.mplstyle')
 plt.rcParams['image.composite_image'] = False
 
 # Data
-df = pd.read_pickle('recordings.pkl')
-df = df[df['player'].isin([30,31,32,99])]
+df = pd.read_pickle('data/processed/dataset_bilbao.pkl')
+df = df[df['player'].isin(list(range(30)))]
+# df = df[df['player'].isin([30,31,32,99]) & (df.type == "villefavard")]
+
+# df = pd.read_pickle('data/processed/dataset_cnsm.pkl')
+# df = df[df.violin.isin(['A', 'B', 'C'])]
 
 # Compute duration
 def get_row_duration(row):
     row['duration'] = librosa.get_duration(path=row['file'])
+    # row['duration'] = (row['end'] - row['start'])
     return row
 df = df.apply(get_row_duration, axis=1)
 
@@ -40,5 +45,5 @@ ax2.axis('off')
 
 plt.subplots_adjust(wspace=1/16, hspace=1/9)
 
-plt.savefig('figures/class_weights_2024.png', bbox_inches='tight', dpi=300)
-plt.show()
+plt.savefig('reports/figures/class_weights.svg', bbox_inches='tight', dpi=300)
+# plt.show()

@@ -13,55 +13,62 @@ base_config = {
     'hop_ratio': [1],
     # 'n_coeff': [10*i for i in range(4,10, 2)],
     'n_coeff': [100],
-    'sr': [10000],
-    'size': [60],
+    'sr': [8000],
+    'size': [30],
     'feature': ['MFCC_welch']
 }
 
 configs = [
 {
     'clf': [sklearn.neighbors.KNeighborsClassifier()],
-    # 'n_neighbors': [10*i+1 for i in range(4,10, 2)],
+    # 'n_neighbors': [10*i+1 for i in range(1,10)],
     'n_neighbors': [41],
     'p': [1],
     'weights': ['distance'], 
 },
 # {
-#     # 'clf': [sklearn.svm.SVC(decision_function_shape='ovr')]
+#     'clf': [sklearn.svm.SVC(decision_function_shape='ovr')]
 # },
 # {
-#     # 'clf': [sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(30,30), max_iter=2000)]
+#     'clf': [sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(30,30), max_iter=2000)]
 # }
 ]
 
 configs = [config | base_config for config in configs]
 
-df = pd.read_pickle('data/processed/dataset_cnsm.pkl')
-df = df[(df.violin.isin(['A', 'B', 'C']))]
+dataset = 'cnsm'
 
-train_cdt = df.session == 1
-test_cdt = ~train_cdt
+df = pd.read_pickle(f'data/processed/dataset_{dataset}.pkl')
+# df = df[(df.violin.isin(['A', 'B', 'C']))]
 
-print(train_cdt.value_counts())
+train_cdt = df.violin == "scale"
+test_cdt = df.type == "free"
 
 df = df[train_cdt | test_cdt]
+
+le = sklearn.preprocessing.LabelEncoder()
+df['violin'] = le.fit_transform(df['violin'])
+df['player'] = le.fit_transform(df['player'])
+print(df)
 
 def train(config):
     # Features
     data = []
 
     for index, row in tqdm.tqdm(df.iterrows(), total=df.shape[0]):
-        offset = row['start']
-        duration = row['end'] - offset
+        offset = None
+        duration = None
+        # offset = row['start']
+        # duration = row['end'] - offset
         y, _    = librosa.load(str(row['file']), sr=config['sr'], offset=offset, duration=duration)
         # scipy.io.wavfile.write(
         #     f'data/test/{row['violin']}{row['sample']}{row['condition']}.wav',
         #     config['sr'],
         #     y
         # )
-        # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=10*config['sr'])[::10*config['sr']]):
-        # for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])):
-        for audio in [y]:
+        # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=config['size']*config['sr'])[::config['size']*config['sr']]):
+        for audio in np.split(y, np.arange(config['sr']*config['size'], len(y), config['sr']*config['size'])[:-1]):
+        # for audio in [y]:
 
             features = audio
             for step in pipes[config['feature']]:
@@ -75,13 +82,16 @@ def train(config):
             data.append(dic)
 
     features_df = pd.DataFrame(data)
-    features_df.to_pickle('data/processed/features_cnsm.pkl')
+    features_df.to_pickle(f'data/processed/features_{dataset}.pkl')
+
+    train_cdt = features_df.type == "scale"
+    test_cdt = features_df.type == "free"
 
     # Test / Train
     x_train = np.vstack(features_df[train_cdt.to_numpy()].features)
-    y_train = features_df[train_cdt.to_numpy()].violin.to_numpy()
+    y_train = features_df[train_cdt.to_numpy()].player.to_numpy()
     x_test = np.vstack(features_df[test_cdt.to_numpy()].features)
-    y_test = features_df[test_cdt.to_numpy()].violin.to_numpy()
+    y_test = features_df[test_cdt.to_numpy()].player.to_numpy()
 
     # Train
     # nca = sklearn.neighbors.NeighborhoodComponentsAnalysis(max_iter=1, verbose=1)
@@ -96,7 +106,7 @@ def train(config):
         # ('MLP', sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(30,30), max_iter=2000)),
     ])
     pipeline.fit(x_train, y_train)
-
+    print(pipeline.predict(x_test))
     print(f'Train score : {pipeline.score(x_train, y_train)}')
     print(f'Test score : {pipeline.score(x_test, y_test)}')
 

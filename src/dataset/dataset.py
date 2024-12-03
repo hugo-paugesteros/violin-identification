@@ -36,12 +36,12 @@ class Dataset(BaseEstimator):
 
         data = []
         for index, row in tqdm.tqdm(X.iterrows(), total=X.shape[0]):
-            offset = row['start'] or None
-            duration = (row['end'] - offset) or None
+            offset = row['start'] if 'start' in X else None
+            duration = (row['end'] - offset) if 'start' in X else None
             y, _    = librosa.load(str(row['file']), sr=self.sr, offset=offset, duration=duration)
             
             # for i, audio in  enumerate(np.lib.stride_tricks.sliding_window_view(y, window_shape=self.sample_duration * self.sr)[::self.sample_duration * self.sr]):
-            # for audio in np.split(y, np.arange(self.sample_duration * self.sr, len(y), self.sample_duration * self.sr)):
+            # for audio in np.split(y, np.arange(self.sample_duration * self.sr, len(y), self.sample_duration * self.sr)[:-1]):
             for audio in [y]:
 
                 features = y
