@@ -1,0 +1,12 @@
+[project]
+name = "identification"
+version = "0.0.1"
+authors = [
+  { name="Example Author", email="author@example.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.7"
+
+[tool.setuptools]
+py-modules = ["identification"]

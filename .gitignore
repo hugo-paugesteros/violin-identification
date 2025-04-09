@@ -3,3 +3,8 @@ __pycache__/
 venv/
 *.pkl
 temp/
+.olauth
+*.egg-info/
+
+data/*
+!data/
