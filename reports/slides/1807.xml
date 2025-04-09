@@ -1,0 +1,51 @@
+
+<section title="Réunion de thèse">
+  <style>
+    img {
+        max-width: 80% !important;
+        max-height: 100vh !important;
+    }
+    table, th, td {
+        border: 2px solid;
+    }
+    
+  </style>
+  <h3 style="font-weight:200">18/07/2024</h3>
+  <section title="Ouverture par le jeu d'un violon">
+    <section title="Point">
+      <ul>
+        <li>Sessions d'enregistrement le 10-11 et 18-19 septembre</li>
+        <li>5-10 violonistes</li>
+      </ul>
+    </section>
+    <section title="Protocole"><a href="https://docs.google.com/document/d/1DesjD5NAzoVnysS5x0K90T3u6iOeDp-aimXJX3Ign3I/edit">Lien vers le protocole</a></section>
+  </section>
+  <section title="Reconnaissance de violons par leur son">
+    <section title="Influence de l'extrait joué">
+      <p>Difficile de tirer des conclusions...</p>
+    </section>
+    <section title="Optimisation des hyperparamètres">
+      <ul>
+        <li>Fréquence d'échantillonage : $10 000 Hz$</li>
+        <li>Durée de chaque extrait : 60 secondes</li>
+        <li>Nombre de voisins : 60-70</li>
+      </ul>
+    </section>
+    <section title="Nouveaux enregistrements : violons 4 et 5">
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Feature</th>
+          <th>Train (scales)</th>
+          <th>Test (musical excerpts)</th>
+        </tr>
+        <tr>
+          <td>K-NN</td>
+          <td>MFCC</td>
+          <td>100%</td>
+          <td>100%</td>
+        </tr>
+      </table>
+    </section>
+  </section>
+</section>

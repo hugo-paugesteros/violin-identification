@@ -2,3 +2,9 @@ __pycache__/
 .vscode/
 venv/
 *.pkl
+temp/
+.olauth
+*.egg-info/
+
+data/*
+!data/

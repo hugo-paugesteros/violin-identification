@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{lukasik2010}
+E.~Lukasik, ``Long term cepstral coefficients for violin identification,'' {\em Journal of The Audio Engineering Society}, May 2010.
+
+\bibitem{wang2020}
+Q.~Wang and C.~Bao, ``Individual violin recognition method combining tonal and nontonal features,'' {\em Electronics}, vol.~9, p.~950, June 2020.
+
+\bibitem{yokoyama2022a}
+M.~Yokoyama and Y.~Ishigaki, ``Identification of violin timbre by neural network using acoustic features,'' {\em Proceedings of Meetings on Acoustics}, vol.~49, p.~035004, Dec. 2022.
+
+\bibitem{fritz2019a}
+C.~Fritz, G.~Stoppani, U.~Igartua, R.~J. Rico, A.~Arroitajauregi, and L.~Artola, ``The {{Bilbao}} project : {{How}} violin makers match backs and tops to produce particular sorts of violins,'' in {\em International {{Symposium}} on {{Musical Acoustics}}}, Sept. 2019.
+
+\bibitem{buen2005}
+A.~Buen, ``Comparing the sound of golden age and modern violins: Long-time-average spectra,'' {\em VSA Papers}, vol.~1, July 2005.
+
+\bibitem{eronen2000}
+A.~Eronen and A.~Klapuri, ``Musical instrument recognition using cepstral coefficients and temporal features,'' in {\em 2000 {{IEEE International Conference}} on {{Acoustics}}, {{Speech}}, and {{Signal Processing}}. {{Proceedings}} ({{Cat}}. {{No}}.{{00CH37100}})}, vol.~2, pp.~II753--II756 vol.2, June 2000.
+
+\bibitem{deng2008}
+J.~D. Deng, C.~Simmermacher, and S.~Cranefield, ``A study on feature analysis for musical instrument classification,'' {\em IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics)}, vol.~38, pp.~429--438, Apr. 2008.
+
+\end{thebibliography}
